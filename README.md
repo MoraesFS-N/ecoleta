@@ -1,2 +1,2 @@
-# ecoleta
+# Ecoleta
 Projeto desenvolvido na NWL
