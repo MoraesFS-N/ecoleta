@@ -41,28 +41,46 @@ function getCities(event) {
 document.querySelector('select[name=uf]').addEventListener('change', getCities);
 
 // itens de coleta
-const itensToCollect = document.querySelectorAll('.itens-grid');
 
+
+const itensToCollect = document.querySelectorAll('.itens-grid li');
 for (const item of itensToCollect) {
     item.addEventListener('click', handleSelectedItem);
 }
 
-let selectedItens = [];
+const collectedItems = document.querySelector('input[name=items]');
+
+let selectedItems = [];
 
 
 function handleSelectedItem(event) {
     const itemLi = event.target;
-    // adicionar ou remover um classe
+    //adicionar ou remover um classe 
     itemLi.classList.toggle('selected');
+    const itemId = itemLi.dataset.id;
 
-    const itemId = event.target.dataset.id;
-
-    // verificar se existem itens selecionados, se sim, pegar os itens selecionados 
-    const alreadySelected = selectedItens.findIndex( (item)=>{
-       const itemFound = item === itemId
+    
+    //verificar itens selecionados
+    //a função abaixo fircará rodando até encontrar um valor verdadeiro
+    const alreadySelected = selectedItems.findIndex((item)=>{
+        // eslint-disable-next-line eqeqeq
+        const itemFound = item == itemId;
+        return itemFound;
     })
+    //retirar seleção
+    if(alreadySelected >= 0){
+        //tirar da seleção
+        const filteredItems = selectedItems.filter( item => {
+            // eslint-disable-next-line eqeqeq
+            const itemIsDifferent = item != itemId
+            return itemIsDifferent
+        })
 
-    //se já estiver selecionadom tirar da seleção 
+        selectedItems = filteredItems;
+    } else {
+        selectedItems.push(itemId)
+    }
 
-    // se não tiver selecionado, adicionar a seleção
+    //atualizar o campo escondido com o itens selecionados
+    collectedItems.value = selectedItems
 }
