@@ -1,6 +1,6 @@
 # Ecoleta
 Projeto desenvolvido na NWL com JS
-## Tencologias
+## Tecnologias
  - JS
  - HTML
  - CSS
