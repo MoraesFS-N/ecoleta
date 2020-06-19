@@ -4,7 +4,7 @@
   "description": "Projeto desenvolvido na NWL com JS\r ## Tecnologias\r  - JS\r  - HTML\r  - CSS\r  - NODE JS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/MoraesFS-N/ecoleta#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "nunjucks": "^3.2.1"
   }
 }
