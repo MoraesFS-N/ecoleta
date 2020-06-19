@@ -2,7 +2,7 @@
 function populateUfs() {
     const ufSelect = document.querySelector('select[name=uf]');
     
-    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
     .then( res =>  res.json())
     .then( states => {
 
@@ -24,8 +24,8 @@ function getCities(event) {
     const indexOfSelectedState =  event.target.selectedIndex;
     stateInput.value = event.target.options[indexOfSelectedState].text;
 
-    const url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/33/municipios';
-    citySelect.innerHTM = '<option value> Selecione a cidade></option>';
+    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`;
+    citySelect.innerHTML = '<option value> Selecione a cidade</option>';
     citySelect.disabled = true;
 
     fetch(url)
@@ -59,8 +59,7 @@ function handleSelectedItem(event) {
     itemLi.classList.toggle('selected');
     const itemId = itemLi.dataset.id;
 
-    
-    //verificar itens selecionados
+     //verificar itens selecionados
     //a função abaixo fircará rodando até encontrar um valor verdadeiro
     const alreadySelected = selectedItems.findIndex((item)=>{
         // eslint-disable-next-line eqeqeq
