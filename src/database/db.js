@@ -56,14 +56,14 @@ module.exports = db;
 
      db.run(query, values, afterInsertData);
     // o rows mostra todos os dados inseridos na tabela em linha
-    
-    // db.run(`DELETE FROM places WHERE id = ?`, [1], function(err) {
-    //     if(err){ 
-    //         return console.log(err);
-    //     }
-    //     console.log('Registro deletado com sucesso');
-    // });
-    
+    */
+ /* db.run(`DELETE FROM places WHERE id = ?`, [6], function(err) {
+        if(err){ 
+            return console.log(err);
+        }
+        console.log('Registro deletado com sucesso');
+    });
+*/  
     // db.all(`SELECT * FROM places`, function(err, rows) {
     //     if(err){ 
     //         return console.log(err);
@@ -71,5 +71,4 @@ module.exports = db;
     //     console.log('Aqui estão seus registros');
     //     console.log(rows);
     // })
-})
-*/
+// })
