@@ -24,7 +24,7 @@ server.get('/create-point', (req, res)=>{
 });
 
 
-server.post('/save-pont', (req, res) => {    
+server.post('/save-point', (req, res) => {    
             const query = `
                             INSERT INTO places (
                                 name,
@@ -49,13 +49,14 @@ server.post('/save-pont', (req, res) => {
 
             function afterInsertData(err){
                 if(err){ 
-                    return console.log(err);
+                    console.log(err);
+                    return res.send('erro no cadastro')
                 }
             
                 console.log('Cadastrado com sucesso');
                 console.log(this);
 
-                return res.send('ok');
+                return res.render('create-point.html', { saved: true });
             }
 
             db.run(query, values, afterInsertData);
